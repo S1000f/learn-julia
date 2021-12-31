@@ -25,3 +25,33 @@ println(ispath("output.txt"))
 println(isdir("output.txt"))
 println(isfile("output.txt"))
 println(readdir(pwd()))
+
+using Serialization
+
+io = IOBuffer()
+
+t = [1, 2, 3]
+
+serialize(io, t)
+
+byteArr = take!(io)
+
+println(byteArr)
+
+t2 = deserialize(IOBuffer(byteArr))
+
+println(t2)
+
+# run shell script
+cmd = `echo hello world`
+run(cmd)
+ls = `ls -l`
+run(ls)
+
+# module
+include("myModule.jl")
+
+using Main.MyModule
+
+exportedMethod()
+MyModule.notExportedMethod()
