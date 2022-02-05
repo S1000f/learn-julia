@@ -17,7 +17,7 @@ example()
 
 # const such as final keyword
 const finalVariable = "final"
-finalVariable = "warning"
+# finalVariable = "warning"
 
 const array1 = [1, 2, 3]
 function doit()
